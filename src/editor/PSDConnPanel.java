@@ -41,7 +41,7 @@ public class PSDConnPanel extends JDialog
 
 	DefaultListModel<String> playerListModel;
 
-	final String domain = "https://raw.githubusercontent.com/FVitor7/PES-EDITOR-7.0-PSD/master/api/index.php.txt";
+	final String domain = "https://pes-editor.herokuapp.com/";
 	
 	public static String getHTML(String urlToRead)
 	{
