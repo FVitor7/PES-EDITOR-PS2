@@ -1,9 +1,7 @@
 # PES Editor 7.0 PSD POR: FABIO VITOR
 ###### Fork of purplehaze's excellent PES2014 Editor
 \
-Based on PES2009 editor (GPLv3 licenced) from [purplehaze](http://www.purplehaze.eclipse.co.uk/downloads.html) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
-
-Packed as Eclipse project, with addition of 2 simple bash build scripts (` sh build.sh ` and ` sh run.sh `) for GNU/Linux with base OpenJDK.  
+Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-web.co.uk/members/derfellink.30046/) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
 
 ### New features
 * PSD search (based on [Pes Stats Database API](https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
@@ -19,7 +17,9 @@ Packed as Eclipse project, with addition of 2 simple bash build scripts (` sh bu
  
 ### TODO
 * CSV import (maybe)
-* Online rooster generator (maybe)
+* Kit Config (maybe)
+* Fama Relink (maybe)
+* Online roster generator (maybe)
 
 ### Contributing
 Fork this repo and send pull requests :) 
