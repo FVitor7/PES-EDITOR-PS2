@@ -3,6 +3,8 @@ package editor;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
@@ -20,7 +22,7 @@ public class MapaCallname extends JDialog
 	//JScrollPane sp = new JScrollPane(stat);
 	
 	
-
+	 private int pos = 0;
 	public MapaCallname(Frame owner, MapaCallname mapacall) 
 	{
 		super(owner, "Mapa de CallNames Pes 2014 PS2", true);
@@ -30,8 +32,10 @@ public class MapaCallname extends JDialog
 		
 		// Buttons
 		JButton btnclose = new JButton("Close");
-			
-		JTextArea stat = new JTextArea("ALMER		cod.relink:	4279\n" + 
+		JButton pesquisar = new JButton("Searche Player");
+		final JTextField text = new JTextField("", 10);
+		
+		final JTextArea stat = new JTextArea("ALMER		cod.relink:	4279\n" + 
 				"DRAGOVIC		cod.relink:	3641\n" + 
 				"GARICS		cod.relink:	2902\n" + 
 				"FUCHS		cod.relink:	2572\n" + 
@@ -3426,16 +3430,75 @@ public class MapaCallname extends JDialog
 				"OSTWAUT		cod.relink:	178\n" + 
 				"NJORGO		cod.relink:	179\n" + 
 				"			\n" + 
-				"", 30, 43);
+				"", 27, 43);
+		//String xx = new String();
+		
+		pesquisar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get the text to find...convert it to lower case for eaiser comparision
+                String find = text.getText().toLowerCase();
+                // Focus the text area, otherwise the highlighting won't show up
+                stat.requestFocusInWindow();
+                // Make sure we have a valid search term
+                if (find != null && find.length() > 0) {
+                    Document document = stat.getDocument();
+                    int findLength = find.length();
+                    try {
+                        boolean found = false;
+                        // Rest the search position if we're at the end of the document
+                        if (pos + findLength > document.getLength()) {
+                            pos = 0;
+                        }
+                        // While we haven't reached the end...
+                        // "<=" Correction
+                        while (pos + findLength <= document.getLength()) {
+                            // Extract the text from teh docuemnt
+                            String match = document.getText(pos, findLength).toLowerCase();
+                            // Check to see if it matches or request
+                            if (match.equals(find)) {
+                                found = true;
+                                break;
+                            }
+                            pos++;
+                        }
+
+                        // Did we find something...
+                        if (found) {
+                            // Get the rectangle of the where the text would be visible...
+                            Rectangle viewRect = stat.modelToView(pos);
+                            // Scroll to make the rectangle visible
+                            stat.scrollRectToVisible(viewRect);
+                            // Highlight the text
+                            stat.setCaretPosition(pos + findLength);
+                            stat.moveCaretPosition(pos);
+                            // Move the search position beyond the current match
+                            pos += findLength;
+                        }
+
+                    } catch (Exception exp) {
+                        exp.printStackTrace();
+                    }
+
+                }
+            }
+        });
+		
+		 
+		
 		JScrollPane sp = new JScrollPane(stat);
-		PlayerDialog retForm;
+		
 
 		//	lbl.setBounds(0, 0, 400, 30);
 			//pnl.add(lbl);
 
 			sp.setBounds(0, 30, 500, 530);
-			pnl.add(sp);
 			
+			pnl.add(sp);
+			pnl.add(text);
+			pnl.add(pesquisar);
+			
+			//xx = stat.toString();
 
 			// JPanel bounds
 			pnl.setBounds(0, 0, 500, 530);
@@ -3455,4 +3518,5 @@ public class MapaCallname extends JDialog
 		}
 
 	}
+	
 	
