@@ -8,7 +8,7 @@ Packed as Eclipse project, with addition of 2 simple bash build scripts (` sh bu
 ### New features
 * PSD search (based on [pesstatsdatabase-API](https://github.com/lazanet/pesstatsdatabase-API) of mine) - at Tools->Get PSD Stats
 * PSD stat paste (at player edit dialog)
-*Import OptionFile From: Pes2014, Pes2013, Pes2012, Pes2011, Pes2010, Pes2009, Pes2008, Pes6 and Pes5.
+*Import OptionFile From: Pes2014, Pes2013, Pes2012, Pes2011, Pes2010, Pes2009, Pes2008, Pes6 and Pes5. (Players, Kits, Stadium s, Aparence)
 
 *Export And Import Teams (Tmrv), Players (Plrv), Kits Config.
 
