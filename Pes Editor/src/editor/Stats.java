@@ -56,7 +56,9 @@ public class Stats {
 
 	final static Stat callName = new Stat(0, 1, 0, 0xFFFF, "Call Name");
 	
-	final static Stat callNameT = new Stat(0, 1, 0, 0xFFFF, "Call Name");
+	final static Stat callNameT = new Stat(13, 1, 0, 0xFFFF, "Call Name");
+	
+	final static Stat fama = new Stat(0, 38, 0, 0xffff, "Fama");
 
 	final static Stat height = new Stat(1, 41, 0, 0x3F, "Height");
 
@@ -542,7 +544,7 @@ public class Stats {
 
 	final static String[] modInjury = { "C", "B", "A" };
 
-	final static String[] modFK = { "A", "B", "C", "D", "E", "F", "G", "H" };
+	final static String[] modFK = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
 	
 	public static final String[] MOD_FACE = {"Build", "Preset 1", "Preset"};
 	
@@ -554,7 +556,9 @@ public class Stats {
 	final static String[] mod18 = { "1", "2", "3", "4", "5", "6", "7", "8" };
 	
 	final static String[] MOD_CEL = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80" };
-
+	
+	final static String[] modcall = { "DESATIVADO", "ALMER", "DRAGOVIC", "GARICS", "FUCHS", "KAVLAK", "ALABA", "HARNIK", "ARNAUTOVIC", "JUNUZOVIC", "JANKO", "LINDNER", "ÖZCAN", "PRÖDL", "SCHIEMER", "F. KLEIN", "BAUMGARTLINGER", "JANTSCHER", "IVANSCHITZ", "A. WEIMANN", "COURTOIS", "KOMPANY" };
+	
 	public static int getValue(OptionFile of, int player, Stat stat) {
 		int val = 0;
 		if (of.newVersion) {
@@ -922,7 +926,6 @@ public class Stats {
 					}
 				}
 			}
-
 			
 			if (stat.type == 5) {
 				v = new Integer(s).intValue() - 1;
@@ -965,6 +968,8 @@ public class Stats {
 				}
 			}
 			
+			
+
 			if (stat.type == 8) {
 				v = new Integer(s);
 			}
@@ -974,7 +979,7 @@ public class Stats {
 		}
 	}
 
-	public static String getString(OptionFile of, int player, Stat stat) {
+	/*public static String getString(OptionFile of, int player, Stat stat) {
 		String result = "";
 		int val = getValue(of, player, stat);
 
@@ -1052,22 +1057,6 @@ public class Stats {
 			}
 		}
 		
-		if (stat.type == 14) {
-			result = "0";
-			if (val == 18487) {
-				result = "A";
-			}
-			if (val == 782) {
-				result = "B";
-			}
-			if (val == 49749) {
-				result = "C";
-			}
-			if (val == 12299) {
-				result = "D";
-			}
-		}
-		
 		if (stat.type == 5) {
 			result = String.valueOf(val + 1);
 		}
@@ -1084,6 +1073,10 @@ public class Stats {
 		if (stat.type == 7) {
 			result = modFK[val];
 		}
+		
+		if (stat.type == 8) {
+			result = String.valueOf(val);
+		}
 		if (stat.type == 10) {
 			result = MOD_FACE[val];
 		}
@@ -1094,25 +1087,112 @@ public class Stats {
 			result = MOD_CEL[val];
 		}
 		
+		return result;
+	}
+	*/
+	public static String getString(OptionFile of, int player, Stat stat) {
+		String result = "";
+		int val = getValue(of, player, stat);
+
+		if (stat.type == 0) {
+			result = String.valueOf(val);
+		}
+		if (stat.type == 1) {
+			result = String.valueOf(val + 148);
+		}
+		if (stat.type == 2) {
+			result = String.valueOf(val + 15);
+		}
+		if (stat.type == 3) {
+			// System.out.println(val);
+			if (of.newVersion) {
+				if (val >= 0 && val < nation.length) {
+					result = nation[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version13) {
+				if (val >= 0 && val < nation13.length) {
+					result = nation13[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version12) {
+				if (val >= 0 && val < nation12.length) {
+					result = nation12[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version11) {
+				if (val >= 0 && val < nation11.length) {
+					result = nation11[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version10) {
+				if (val >= 0 && val < nation10.length) {
+					result = nation10[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version09) {
+				if (val >= 0 && val < nation09.length) {
+					result = nation09[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version08) {
+				if (val >= 0 && val < nation08.length) {
+					result = nation08[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version6) {
+				if (val >= 0 && val < nation6.length) {
+					result = nation6[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			} else if (of.version5) {
+				if (val >= 0 && val < nation5.length) {
+					result = nation5[val];
+				} else {
+					result = String.valueOf(val) + "?";
+				}
+			}
+		}
+		if (stat.type == 4) {
+			result = "R";
+			if (val == 1) {
+				result = "L";
+			}
+		}
+		if (stat.type == 5) {
+			result = String.valueOf(val + 1);
+		}
+		if (stat.type == 6) {
+			result = "A";
+			if (val == 1) {
+				result = "B";
+			}
+			if (val == 0) {
+				result = "C";
+			}
+		}
+		if (stat.type == 7) {
+			result = modFK[val];
+		}
 		if (stat.type == 8) {
 			result = String.valueOf(val);
 		}
-		if (stat.type == 9) {
-			result = "0";
-			if (val == 18487) {
-				result = "1";
-			}
-			if (val == 12302) {
-				result = "2";
-			}
-			if (val == 49749) {
-				result = "3";
-			}
-			if (val == 12299) {
-				result = "4";
-			}
-			
+		if (stat.type == 10) {
+			result = MOD_FACE[val];
 		}
+		if (stat.type == 11) {
+			result = MOD_SKIN[val];
+		
+		}
+		
 		return result;
 	}
 }

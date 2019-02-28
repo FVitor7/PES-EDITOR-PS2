@@ -39,9 +39,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 
-import editor.GeneralAbilityPanel.Verifiercall;
-import editor.GeneralAbilityPanel.Verifiercel;
-
 public class ExtraPanel extends JPanel {
 	/**
 	 * 
@@ -53,6 +50,8 @@ public class ExtraPanel extends JPanel {
 	JComboBox nationBox;
 
 	JTextField faceField;
+	
+	JTextField famaField;
 	
 	JTextField callField;
 	
@@ -95,6 +94,7 @@ public class ExtraPanel extends JPanel {
 		faceTypeField = new JTextField(2);
 		faceField = new JTextField(2);
 		faceField.setInputVerifier(new Verifierface());
+		famaField = new JTextField(2);
 		hairField = new JTextField(2);
 		hairField.setInputVerifier(new Verifierhair());;
 		callField = new JTextField(2);
@@ -134,6 +134,10 @@ public class ExtraPanel extends JPanel {
 		add(localJPanel6);
 		add(new JLabel("Celebração"));
 		add(localJPanel5);
+		add(new JLabel("Fama"));
+		famaField.setToolTipText("FamaA: 18487 / FamaB: 782 / FamaC: 49749 / FamaD: 12299 / Fama OFF: 21769");
+		add(famaField);
+		
 		
 		
 		
@@ -145,10 +149,11 @@ public class ExtraPanel extends JPanel {
 
 	public void load(int p) {
 		player = p;
-		nationBox.setSelectedItem(Stats
-				.getString(of, player, Stats.nationality));
+		//nationBox.setSelectedItem(Stats
+		//		.getString(of, player, Stats.nationality));
 
 		faceField.setText(Stats.getString(of, player, Stats.FACE_TYPE));
+		famaField.setText(Stats.getString(of, player, Stats.fama));
 		hairField.setText(Stats.getString(of, player, Stats.hair));
 		specHairCheck.setSelected(Stats.getValue(of, player, Stats.SH2) != 0);
 		callField.setText(Stats.getString(of, player, Stats.callName));
@@ -156,11 +161,7 @@ public class ExtraPanel extends JPanel {
 		skinBox.setSelectedItem(Stats.getString(of, player, Stats.SKIN2));
 		cel1Box.setSelectedItem(Stats.getString(of, player, Stats.CEL1));
 		cel2Box.setSelectedItem(Stats.getString(of, player, Stats.CEL2));
-
-
 	}
-	
-	
 	
 	public void stateChanged(ChangeEvent evt) {
 		String s;

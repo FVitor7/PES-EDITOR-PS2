@@ -277,10 +277,10 @@ public class PlayerDialog extends JDialog {// implements ListSelectionListener,
 			importButton.setVisible(false);
 		}
 		genPanel.load(index);
-		exPanel.load(index);
 		posPanel.load(index);
 		abiPanel.load(index);
 		spePanel.load(index);
+		exPanel.load(index);
 		setVisible(true);
 	}
 
@@ -435,6 +435,7 @@ public class PlayerDialog extends JDialog {// implements ListSelectionListener,
 				.getSelectedItem()));
 		Stats.setValue(of, index, Stats.age, genPanel.ageField.getText());
 		Stats.setValue(of, index, Stats.callName, exPanel.callField.getText());
+		Stats.setValue(of, index, Stats.fama, exPanel.famaField.getText());
 		//Stats.setValue(of, index, Stats.fama, exPanel.famaField.getText());
 		//Stats.setValue(of, index, Stats.cel1, exPanel.cel1Field.getText());
 		//Stats.setValue(of, index, Stats.faceType, exPanel.faceTypeField.getText());

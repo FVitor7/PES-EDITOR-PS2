@@ -94,10 +94,10 @@ public class GeneralAbilityPanel extends JPanel {
 		String[] mod14 = { "1", "2", "3", "4" };
 		dribBox = new JComboBox(mod14);
 		dkBox = new JComboBox(mod14);
-		String[] mod19 = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+		String[] mod19 = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
 		fkBox = new JComboBox(mod19);
 		
-		String[] mod15 = { "1", "2", "3", "4", "5" };
+		String[] mod15 = { "1", "2", "3", "4", "5", "6" };
 		pkBox = new JComboBox(mod15);
 		/*String[] modG = { "early lasting", "average", "average lasting", "late", "late lasting", "early" };
 		growthBox = new JComboBox(modG);*/
@@ -232,19 +232,5 @@ public class GeneralAbilityPanel extends JPanel {
 			return ok;
 		}
 	}
-	class Verifiercel extends InputVerifier {
-		public boolean verify(JComponent input) {
-			boolean ok = false;
-			JTextField tf = (JTextField) input;
-			try {
-				int v = new Integer(tf.getText()).intValue();
-				if (v >= 0 && v <= 80) {
-					ok = true;
-				}
-			} catch (NumberFormatException nfe) {
-				ok = false;
-			}
-			return ok;
-		}
-	}
+
 }
