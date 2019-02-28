@@ -1,4 +1,4 @@
-# PES-Editor-7.0-PSD-POR-FABIO-VITOR
+# PES Editor 7.0 PSD POR: FABIO VITOR
 ###### Fork of purplehaze's excellent PES2014 Editor
 \
 Based on PES2009 editor (GPLv3 licenced) from [purplehaze](http://www.purplehaze.eclipse.co.uk/downloads.html) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
