@@ -6,7 +6,7 @@ Based on PES2009 editor (GPLv3 licenced) from [purplehaze](http://www.purplehaze
 Packed as Eclipse project, with addition of 2 simple bash build scripts (` sh build.sh ` and ` sh run.sh `) for GNU/Linux with base OpenJDK.  
 
 ### New features
-* PSD search (based on [(https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
+* PSD search (based on [Pes Stats Database API(https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
 * PSD stat paste (at player edit dialog)
 * Import OptionFile From: Pes2014, Pes2013, Pes2012, Pes2011, Pes2010, Pes2009, Pes2008, Pes6 and Pes5. (Players, Kits, Stadiums, Aparence Players, etc...)
 * Export And Import Teams (Tmrv), Players (Plrv), Kits Config.
