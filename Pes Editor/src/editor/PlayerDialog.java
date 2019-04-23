@@ -81,6 +81,7 @@ public class PlayerDialog extends JDialog {// implements ListSelectionListener,
 	JButton exportPlayerButton;
 	JButton importPlayerButton;
 	JButton psdButton;
+	JButton sofifaButton;
 
 	JButton cancelButton;
 
@@ -115,6 +116,14 @@ public class PlayerDialog extends JDialog {// implements ListSelectionListener,
 			public void actionPerformed(ActionEvent a)
 			{
 				new PSDStatPaste(owner,thisForm);
+			}
+		});
+		sofifaButton = new JButton("Paste SOFIFA Stat");
+		sofifaButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent a)
+			{
+				new SOFIFAStatPaste(owner,thisForm);
 			}
 		});
 		
@@ -242,6 +251,7 @@ public class PlayerDialog extends JDialog {// implements ListSelectionListener,
 		b2Panel.add(exportPlayerButton);
 		b2Panel.add(importPlayerButton);
 		b2Panel.add(psdButton);
+		b2Panel.add(sofifaButton);
 		lPanel.add(genPanel, BorderLayout.NORTH);
 		lPanel.add(exPanel, BorderLayout.CENTER);
 		//lPanel.add(posPanel, BorderLayout.NORTH);
