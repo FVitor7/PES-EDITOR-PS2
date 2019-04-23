@@ -8,7 +8,9 @@ Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-w
 * PSD search (based on [Pes Stats Database API](https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
 * SOFIFA search (based on [SOFIFA CONNECT API](https://github.com/FVitor7/connect-api-sofifa) of mine) - at Tools->Get SOFIFA Stats
 * PSD stat paste (at player edit dialog)
+* SOFIFA stat paste (at player edit dialog)
 * Import OptionFile From: Pes2014, Pes2013, Pes2012, Pes2011, Pes2010, Pes2009, Pes2008, Pes6 and Pes5. (Players, Kits, Stadiums, Aparence Players, etc...)
+* Fama Relink
 * Export And Import Teams (Tmrv), Players (Plrv), Kits Config.
 * Aparence Edit (Face, Hair, Skin)
 * CallName Relink (Map Inclused)
@@ -20,7 +22,6 @@ Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-w
 ### TODO
 * CSV import (maybe)
 * Kit Config (maybe)
-* Fama Relink (maybe)
 * Online roster generator (maybe)
 
 ### Contributing
