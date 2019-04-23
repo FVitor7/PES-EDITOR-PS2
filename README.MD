@@ -1,10 +1,12 @@
-# PES Editor 7.0 PSD POR: FABIO VITOR
+# PES Editor 8.0 PSD POR: FABIO VITOR
 ###### Fork of purplehaze's excellent PES2014 Editor
 \
 Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-web.co.uk/members/derfellink.30046/) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
 
 ### New features
-* PSD search (based on [Pes Stats Database API](https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
+* (DOWNLOAD [SOFIFA TOOL](https://github.com/FVitor7/connect-api-sofifa/raw/master/SOFIFA.exe) =) - Open->Get Stats
+* SOFIFA search (based on [SOFIFA API](https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
+* PSD search (based on [Pes Stats Database API](https://github.com/FVitor7/connect-api-sofifa) of mine) - at Tools->Get SOFIFA Stats
 * PSD stat paste (at player edit dialog)
 * Import OptionFile From: Pes2014, Pes2013, Pes2012, Pes2011, Pes2010, Pes2009, Pes2008, Pes6 and Pes5. (Players, Kits, Stadiums, Aparence Players, etc...)
 * Export And Import Teams (Tmrv), Players (Plrv), Kits Config.
