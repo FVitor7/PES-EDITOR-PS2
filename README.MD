@@ -4,7 +4,7 @@
 Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-web.co.uk/members/derfellink.30046/) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
 
 ### New features
-* (DOWNLOAD [SOFIFA TOOL - Based in Pes6.es](https://github.com/FVitor7/PES-EDITOR-7.0-PSD/raw/master/SOFIFA-Beta.exe) =) - Open->Get Stats
+* (DOWNLOAD [SOFIFA TOOL - Based in Pes6.es](https://github.com/FVitor7/PES-EDITOR-7.0-PSD/raw/master/SOFIFA2PES.exe) =) - Open->Get Stats
 * PSD search (based on [Pes Stats Database API](https://github.com/FVitor7/api-pes-stats-database) of mine) - at Tools->Get PSD Stats
 * SOFIFA search (based on [SOFIFA CONNECT API](https://github.com/FVitor7/connect-api-sofifa) of mine) - at Tools->Get SOFIFA Stats
 * PSD stat paste (at player edit dialog)
