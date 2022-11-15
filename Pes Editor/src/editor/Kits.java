@@ -25,6 +25,8 @@ package editor;
 public class Kits {
 	static final int totalN = 67; //offset
 
+	static final int totalTeams = 197; //offset
+
 	//static final int startAdrN = 751254;
 	static final int startAdrN = 742324; //offset
 

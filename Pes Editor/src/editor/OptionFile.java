@@ -1880,7 +1880,7 @@ public class OptionFile {
 			byte[] formationsBytes = new byte[10244];
 			byte[] temp = new byte[53];
 			byte[] ok = new byte[52];
-			for (int squad = 0; squad < 197; squad++) {
+			for (int squad = 0; squad < Kits.totalTeams; squad++) {
 				System.arraycopy(data, Formations.startAdr + 118 + (Formations.size * squad), temp, 0, 53);
 				System.arraycopy(temp, 21, ok, 0, 10);
 				System.arraycopy(temp, 0, ok, 10, 1);
@@ -1912,17 +1912,17 @@ public class OptionFile {
 			byte[] emptyN = new byte[108];
 			byte[] emptyC = new byte[300];
 			byte[] temConfigBytes = new byte[1182];
-			for (int squad = 0; squad < 67; squad++) {
+			for (int squad = 0; squad < Kits.totalN; squad++) {
 				System.arraycopy(data, Kits.startAdrN + (Kits.sizeN * squad), nationalBytes, Kits.sizeN * squad, 348);
 				System.arraycopy(emptyN, 0, nationalBytes, Kits.sizeN * squad + 348, 108);
 			}
-			for (int squad = 0; squad < 130; squad++) {
+			for (int squad = 0; squad < Clubs.total; squad++) {
 				System.arraycopy(data, Kits.startAdrC + (Kits.sizeC * squad), clubBytes, Kits.sizeC * squad, 348);
 				System.arraycopy(emptyC, 0, clubBytes, Kits.sizeC * squad + 348, 300);
 			}
 			
-			for (int squad = 0; squad < 197; squad++) {
-				System.arraycopy(data, Formations.startAdr + 111 + (squad * 364), temConfigBytes, squad * 6, 6);
+			for (int squad = 0; squad < Kits.totalTeams; squad++) {
+				System.arraycopy(data, Formations.startAdr + Formations.configPlayersTeamAdr + (squad * Formations.size), temConfigBytes, squad * Formations.configPlayersTeamSize, Formations.configPlayersTeamSize);
 			}
 			
 			RandomAccessFile playersBin = new RandomAccessFile(dest + "\\unknow_00051.bin_000", "rw");
@@ -1957,7 +1957,7 @@ public class OptionFile {
 			System.arraycopy(data, Squads.slot32, slot32, 0, slot32.length);
 			System.arraycopy(data, Squads.num23, num23, 0, num23.length);
 			System.arraycopy(data, Squads.num32, num32, 0, num32.length);
-			System.arraycopy(data, 639792, boot, 0, 828);
+			System.arraycopy(data, Boots.startAdr, boot, 0, boot.length);
 			System.arraycopy(temConfigBytes, 0, teamConfig, 0, teamConfig.length);
 			System.arraycopy(formationsBytes, 0, formations, 0, formations.length);
 			System.arraycopy(nationalBytes, 0, nationalKits, 0, nationalKits.length);
@@ -2058,7 +2058,7 @@ public class OptionFile {
 			System.arraycopy(data13, Squads.slot3213, slot32, 0, slot32.length);
 			System.arraycopy(data13, Squads.num2313, num23, 0, num23.length);
 			System.arraycopy(data13, Squads.num3213, num32, 0, num32.length);
-			System.arraycopy(data13, 648720, boot, 0, 828);
+			System.arraycopy(data13, Boots.startAdr13, boot, 0, boot.length);
 			System.arraycopy(formationsBytes, 0, formations, 0, formations.length);
 			System.arraycopy(nationalBytes, 0, nationalKits, 0, nationalKits.length);
 			System.arraycopy(clubBytes, 0, clubKits, 0, clubKits.length);

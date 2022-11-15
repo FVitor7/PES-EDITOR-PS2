@@ -30,6 +30,9 @@ public class Formations {
 
 	static final int abcSize = 82; //offset
 
+	static final int configPlayersTeamAdr = 111;
+	static final int configPlayersTeamSize = 6;
+
 	static final int startAdr13 = 668080;
 
 	static final int startAdr12 = 673708;
