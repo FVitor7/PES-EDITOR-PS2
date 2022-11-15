@@ -1,4 +1,4 @@
-# PES Editor 8.0 PSD POR: FABIO VITOR
+# PES Editor 9.0 PS2 POR: FABIO VITOR
 ###### Fork of purplehaze's excellent PES2014 Editor
 \
 Based on PES2014 0.1 editor (GPLv3 licenced) from [DerfelLink](https://www.evo-web.co.uk/members/derfellink.30046/) and reverse-engineered offsets from his [PES_Editor_2014_0.1](https://www.mediafire.com/file/yfgzaykd6lgwscs/PESEditor5-6-08-09-10-11-12-13-14v0.1_%25281%2529.zip/file).
