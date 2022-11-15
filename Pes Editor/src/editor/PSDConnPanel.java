@@ -94,6 +94,7 @@ public class PSDConnPanel extends JDialog
 		teamSelection.setLocation(9,78);
 		teamSelection.setSize(253,30);
 		teamSelection.setEditable(false);
+		teamSelection.setVisible(false);
 		add(teamSelection);
 
 		teamSelection.addActionListener(new ActionListener()
@@ -123,13 +124,22 @@ public class PSDConnPanel extends JDialog
 			public void actionPerformed(ActionEvent e)
 			{
 				teamSelection.removeAllItems();
+				teamSelection.setVisible(false);
 				String teamName = teamSearch.getText();
-				if (teamName=="") return;
-				String res = getHTML(domain+"/index.php?n="+teamName.trim());
+				if (teamName=="") {
+					return;
+				};
+				String res = getHTML(domain+"/index.php?n="+(teamName.trim().replace(" ", "%20")));
+				if (res == null) return;
+				
 				String lines[] = res.replaceAll("(?m)^[ \t]*\r?\n", "").split("\\r?\\n");
+				
 				for (int i=0; i<lines.length; i++)
 					teamSelection.addItem(lines[i]);
-				
+				teamSelection.setVisible(true);
+				if (lines.length == 0) {
+					teamSelection.setVisible(false);
+				};
 			}
 		});
 

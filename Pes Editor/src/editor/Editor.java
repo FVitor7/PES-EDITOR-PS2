@@ -202,7 +202,7 @@ public class Editor extends JFrame {
 	    JPanel localJPanel = new JPanel(new BorderLayout());
 	    setTitle("PES Editor");
 	    localJPanel.add(new JLabel(getPesfanIcon()), "Center");
-	    localJPanel.add(new JLabel("           Carregando, Por Favor Aguarde...       "), "North");
+	    localJPanel.add(new JLabel("           Loading, please wait...       "), "North");
 	    localJPanel.add(localJProgressBar, "South");
 	    getContentPane().add(localJPanel);
 	    pack();
@@ -258,15 +258,15 @@ public class Editor extends JFrame {
 
 		helpDia = new HelpDialog(this);
 
-		tabbedPane.addTab("Transferências", null, tranPanel, null);
-		tabbedPane.addTab("Times", null, teamPan, null);
-		tabbedPane.addTab("Emblemas", null, flagPanel, null);
+		tabbedPane.addTab("Transfers", null, tranPanel, null);
+		tabbedPane.addTab("Teams", null, teamPan, null);
+		tabbedPane.addTab("Emblems", null, flagPanel, null);
 		tabbedPane.addTab("Logos", null, imagePanel, null);
-		tabbedPane.addTab("Estádios", null, stadPan, null);
-		tabbedPane.addTab("Ligas", null, leaguePan, null);
+		tabbedPane.addTab("Stadiums", null, stadPan, null);
+		tabbedPane.addTab("Leagues", null, leaguePan, null);
 		tabbedPane.addTab("PES / Shop", null, wenShop, null);
-		tabbedPane.addTab("Ajustar Habilidades", null, globalPanel, null);
-		tabbedPane.addTab("Importar do OF2", null, importPanel, null);
+		tabbedPane.addTab("Adjust Ability", null, globalPanel, null);
+		tabbedPane.addTab("Import from OF2", null, importPanel, null);
 
 		settingsFile = new File("PESEditor_settings");
 		
@@ -321,40 +321,40 @@ public class Editor extends JFrame {
 
 	private void buildMenu() {
 		JMenuBar mb = new JMenuBar();
-		JMenu menu = new JMenu("ARQUIVO");
-		JMenu help = new JMenu("AJUDA");
-		JMenu tool = new JMenu("FERRAMENTAS");
-		JMenuItem openItem = new JMenuItem("ABRIR OF PES 2014");
-		JMenuItem openItemD = new JMenuItem("ABRIR OF PES 2014 DECRYPTADO");
-		open2Item = new JMenuItem("ABRIR OF2 PES 2014");
-		open2ItemD = new JMenuItem("ABRIR OF2 PES 2014 DECRYPTADO");
-		open2013Item = new JMenuItem("ABRIR OF PES 2013");
-		open2012Item = new JMenuItem("ABRIR OF PES 2012");
-		open2011Item = new JMenuItem("ABRIR OF PES 2011");
-		open2010Item = new JMenuItem("ABRIR OF PES 2010");
-		open2009Item = new JMenuItem("ABRIR OF PES 2009");
-		open2008Item = new JMenuItem("ABRIR OF PES 2008");
-		open6Item = new JMenuItem("ABRIR OF PES 6");
-		open5Item = new JMenuItem("ABRIR OF PES 5");
-		saveItem = new JMenuItem("SALVAR OF PES 2014");
-		saveAsItem = new JMenuItem("SALVAR OF PES 2014 (NOVO ARQUIVO)");
-		saveAsItem13 = new JMenuItem("EXPORTAR OF PES 2013 DECRYPT");
-		saveAsItem12 = new JMenuItem("EXPORTAR OF PES 2012 DECRYPT");
-		saveAsItem11 = new JMenuItem("EXPORTAR OF PES 2011 DECRYPT");
-		saveAsItem10 = new JMenuItem("EXPORTAR OF PES 2010 DECRYPT");
-		saveAsItemD = new JMenuItem("SALVAR OF PES 2014 DECRYPTADO");
-		savePara = new JMenuItem("EXPORTAR DATABASE PES 2014");
-		savePara13 = new JMenuItem("EXPORTAR DATABASE PES 2013");
-		savePara12 = new JMenuItem("EXPORTAR DATABASE PES 2012");
-		savePara11 = new JMenuItem("EXPORTAR DATABASE PES 2011");
-		savePara10 = new JMenuItem("EXPORTAR DATABASE PES 2010");
-		JMenuItem exitItem = new JMenuItem("SAIR");
-		JMenuItem helpItem = new JMenuItem("AJUDA :PES Editor 5/6/08/09/10/11/12/13/14 V 7.0 PSD (FABIO VITOR)"); //version
-		JMenuItem aboutItem = new JMenuItem("SOBRE");
-		convertItem = new JMenuItem("CONVERTER OF 2 PARA OF1");
+		JMenu menu = new JMenu("FILE");
+		JMenu help = new JMenu("HELP");
+		JMenu tool = new JMenu("TOOLS");
+		JMenuItem openItem = new JMenuItem("OPEN OF PES 2014");
+		JMenuItem openItemD = new JMenuItem("OPEN OF PES 2014 DECRYPT");
+		open2Item = new JMenuItem("OPEN OF2 PES 2014");
+		open2ItemD = new JMenuItem("OPEN OF2 PES 2014 DECRYPT");
+		open2013Item = new JMenuItem("OPEN OF PES 2013");
+		open2012Item = new JMenuItem("OPEN OF PES 2012");
+		open2011Item = new JMenuItem("OPEN OF PES 2011");
+		open2010Item = new JMenuItem("OPEN OF PES 2010");
+		open2009Item = new JMenuItem("OPEN OF PES 2009");
+		open2008Item = new JMenuItem("OPEN OF PES 2008");
+		open6Item = new JMenuItem("OPEN OF PES6");
+		open5Item = new JMenuItem("OPEN OF PES5");
+		saveItem = new JMenuItem("SAVE OF PES 2014");
+		saveAsItem = new JMenuItem("SAVE OF PES 2014 (NEW FILE)");
+		saveAsItem13 = new JMenuItem("EXPORT OF PES 2013 DECRYPT");
+		saveAsItem12 = new JMenuItem("EXPORT OF PES 2012 DECRYPT");
+		saveAsItem11 = new JMenuItem("EXPORT OF PES 2011 DECRYPT");
+		saveAsItem10 = new JMenuItem("EXPORT OF PES 2010 DECRYPT");
+		saveAsItemD = new JMenuItem("SAVE OF PES 2014 DECRYPT");
+		savePara = new JMenuItem("EXPORT DATABASE PES 2014");
+		savePara13 = new JMenuItem("EXPORT DATABASE PES 2013");
+		savePara12 = new JMenuItem("EXPORT DATABASE PES 2012");
+		savePara11 = new JMenuItem("EXPORT DATABASE PES 2011");
+		savePara10 = new JMenuItem("EXPORT DATABASE PES 2010");
+		JMenuItem exitItem = new JMenuItem("EXIT");
+		JMenuItem helpItem = new JMenuItem("HELP :PES Editor 5/6/08/09/10/11/12/13/14 V 7.0 PSD (FABIO VITOR)"); //version
+		JMenuItem aboutItem = new JMenuItem("ABOUT");
+		convertItem = new JMenuItem("CONVERT OF2 TO OF1");
 
 		psdItem = new JMenuItem("Get PSD Stats...");
-		csvItem = new JMenuItem("CRIAR UM ARQUIVO CSV COM AS HABILIDADES DOS JOGADORES...");
+		csvItem = new JMenuItem("CREATE A CSV FILE WITH THE PLAYERS' SKILLS...");
 		exitItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -394,7 +394,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 						if (of.fileName != null) {
 							convertItem.setEnabled(true);
 						} else {
@@ -430,7 +430,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 						if (of.fileName != null) {
 							convertItem.setEnabled(true);
 						} else {
@@ -466,7 +466,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -496,7 +496,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -526,7 +526,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -556,7 +556,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -586,7 +586,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -616,7 +616,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -646,7 +646,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -677,7 +677,7 @@ public class Editor extends JFrame {
 						importPanel.refresh();
 						flagPanel.refresh();
 						teamPan.list
-								.setToolTipText("Clique duplo para importar um kit do OF2");
+								.setToolTipText("Double click to import a kit from OF2");
 
 					} else {
 						teamPan.list.setToolTipText(null);
@@ -748,17 +748,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of.saveXPS(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser.setSelectedFile(null);
@@ -770,7 +770,7 @@ public class Editor extends JFrame {
 
 								if (of.saveXPSD(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser.setSelectedFile(null);
@@ -828,17 +828,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of.saveXPS(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser.setSelectedFile(null);
@@ -850,7 +850,7 @@ public class Editor extends JFrame {
 
 								if (of.saveXPS(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser.setSelectedFile(null);
@@ -908,17 +908,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS13(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser13.setSelectedFile(null);
@@ -930,7 +930,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS13(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser13.setSelectedFile(null);
@@ -988,17 +988,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS12(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser12.setSelectedFile(null);
@@ -1010,7 +1010,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS12(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser12.setSelectedFile(null);
@@ -1068,17 +1068,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS11(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser11.setSelectedFile(null);
@@ -1090,7 +1090,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS11(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser11.setSelectedFile(null);
@@ -1148,17 +1148,17 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nArquivo já existe em:\n"
+														+ "\nFile already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS10(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser10.setSelectedFile(null);
@@ -1170,7 +1170,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS10(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " //version
+									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser10.setSelectedFile(null);
@@ -1291,10 +1291,10 @@ public class Editor extends JFrame {
 										.showConfirmDialog(
 												getContentPane(),
 												dest.getName()
-														+ "\nO arquivo já existe em:\n"
+														+ "\nO File already exists in:\n"
 														+ dest.getParent()
-														+ "\nVocê deseja substituir esse arquivo?",
-												"Substituir:  " + dest.getName(),
+														+ "\nDo you want to replace this file?",
+												"Replace:  " + dest.getName(),
 												JOptionPane.YES_NO_OPTION,
 												JOptionPane.WARNING_MESSAGE,
 												null);
@@ -1484,54 +1484,54 @@ public class Editor extends JFrame {
 	}
 
 	private void saveFailMsg() {
-		JOptionPane.showMessageDialog(getContentPane(), "Salvamento falhou", "Erro",
+		JOptionPane.showMessageDialog(getContentPane(), "Save failed!", "Erro",
 				JOptionPane.ERROR_MESSAGE);
 	}
 
 	private void openFailMsg() {
-		JOptionPane.showMessageDialog(getContentPane(), "Impossível abrir o arquivo",
+		JOptionPane.showMessageDialog(getContentPane(), "Unable to open file",
 				"Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	private void saveOkMsg(File dest) {
 		JOptionPane.showMessageDialog(getContentPane(), dest.getName()
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void saveParaOkMsg(File dest) {
-		JOptionPane.showMessageDialog(getContentPane(), "Exportar Database do PES 2014"
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(getContentPane(), "Export Database from PES 2014"
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	
 	private void savePara13OkMsg(File dest) {
-		JOptionPane.showMessageDialog(getContentPane(), "Exportar Database do PES 2013"
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(getContentPane(), "Export Database from PES 2013"
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void savePara12OkMsg(File dest) {
-		JOptionPane.showMessageDialog(getContentPane(), "Exportar Database do PES 2012"
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(getContentPane(), "Export Database from PES 2012"
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void savePara11OkMsg(File dest) {
-		JOptionPane.showMessageDialog(getContentPane(), "Exportar Database do PES 2011"
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(getContentPane(), "Export Database from PES 2011"
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 	private void savePara10OkMsg(File dest) {
-		JOptionPane.showMessageDialog(getContentPane(), "Exportar Database do PES 2010"
-				+ "\nSalvo em:\n" + dest.getParent(),
-				"Arquivo Salvo com sucesso", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(getContentPane(), "Export Database from PES 2010"
+				+ "\nSaved in:\n" + dest.getParent(),
+				"File saved successfully", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void illNameMsg() {
 		JOptionPane
 				.showMessageDialog(
 						getContentPane(),
-						"O nome do arquivo não pode conter os seguintes caracteres:\n\\ / : * ? \" < > |",
+						"The file name cannot contain the following characters:\n\\ / : * ? \" < > |",
 						"Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
@@ -1573,7 +1573,7 @@ public class Editor extends JFrame {
 			if (chooser.getSelectedFile().isFile()
 					&& of.readXPS(chooser.getSelectedFile())) {
 				currentFile = chooser.getSelectedFile();
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " + currentFile.getName()); //version
+				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " + currentFile.getName()); //version
 				Squads.fixAll(of);
 				flagPanel.refresh();
 				imagePanel.refresh();
@@ -1644,7 +1644,7 @@ public class Editor extends JFrame {
 				tabbedPane.setVisible(false);
 
 				convertItem.setEnabled(false);
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR)"); //version
+				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR)"); //version
 				openFailMsg();
 			}
 		}
@@ -1658,7 +1658,7 @@ public class Editor extends JFrame {
 			if (chooser.getSelectedFile().isFile()
 					&& of.readXPSD(chooser.getSelectedFile())) {
 				currentFile = chooser.getSelectedFile();
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR) - " + currentFile.getName()); //version
+				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " + currentFile.getName()); //version
 				Squads.fixAll(of);
 				flagPanel.refresh();
 				imagePanel.refresh();
@@ -1729,7 +1729,7 @@ public class Editor extends JFrame {
 				tabbedPane.setVisible(false);
 
 				convertItem.setEnabled(false);
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 VERSÃO 7.0 PSD (POR FÁBIO VITOR)"); //version
+				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR)"); //version
 				openFailMsg();
 			}
 		}
@@ -1780,7 +1780,7 @@ public class Editor extends JFrame {
 	}
 	private void about()
 	  {
-		JOptionPane.showMessageDialog(getContentPane(), "PES Editor 5/6/08/09/10/11/12/13/14 Versão 7.0 PSD (Por: Fábio Vitor)\nVersão  7.0\n\nCopyright: 2014-2019 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  7.0\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o PES Editor 5/6/08/09/10/11/12/13/14 7.0 PSD (MOD: Fábio Vitor)", -1, getIcon());
+		JOptionPane.showMessageDialog(getContentPane(), "PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (Por: Fábio Vitor)\nVersion  7.0\n\nCopyright: 2014-2019 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  7.0\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o PES Editor 5/6/08/09/10/11/12/13/14 7.0 PSD (MOD: Fábio Vitor)", -1, getIcon());
 	  }
 	  
 	  public static void main(String[] paramArrayOfString)

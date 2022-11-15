@@ -1864,6 +1864,15 @@ public class OptionFile {
 		return done;
 
 	}
+	
+	public byte[] hexStringToByteArray(String s) {
+	    byte[] data = new byte[s.length()/2];
+	    for (int i = 0; i < data.length; i ++) {
+	        data[i] = (byte) ((Character.digit(s.charAt(i*2), 16) << 4)
+	                + Character.digit(s.charAt(i*2 + 1), 16));
+	    }
+	    return data;
+	}
 
 	public boolean savePara(File of, String dest) {
 		boolean done = true;
@@ -1902,6 +1911,7 @@ public class OptionFile {
 			byte[] clubBytes = new byte[84240];
 			byte[] emptyN = new byte[108];
 			byte[] emptyC = new byte[300];
+			byte[] temConfigBytes = new byte[1182];
 			for (int squad = 0; squad < 67; squad++) {
 				System.arraycopy(data, Kits.startAdrN + (Kits.sizeN * squad), nationalBytes, Kits.sizeN * squad, 348);
 				System.arraycopy(emptyN, 0, nationalBytes, Kits.sizeN * squad + 348, 108);
@@ -1910,30 +1920,45 @@ public class OptionFile {
 				System.arraycopy(data, Kits.startAdrC + (Kits.sizeC * squad), clubBytes, Kits.sizeC * squad, 348);
 				System.arraycopy(emptyC, 0, clubBytes, Kits.sizeC * squad + 348, 300);
 			}
+			
+			for (int squad = 0; squad < 197; squad++) {
+				System.arraycopy(data, Formations.startAdr + 111 + (squad * 364), temConfigBytes, squad * 6, 6);
+			}
+			
 			RandomAccessFile playersBin = new RandomAccessFile(dest + "\\unknow_00051.bin_000", "rw");
 			RandomAccessFile slot23Bin = new RandomAccessFile(dest + "\\unknow_00051.bin_001", "rw");
 			RandomAccessFile slot32Bin = new RandomAccessFile(dest + "\\unknow_00051.bin_002", "rw");
 			RandomAccessFile num23Bin = new RandomAccessFile(dest + "\\unknow_00051.bin_003", "rw");
 			RandomAccessFile num32Bin = new RandomAccessFile(dest + "\\unknow_00051.bin_004", "rw");
-			RandomAccessFile bootsBin = new RandomAccessFile(dest + "\\unknow_00056.bin_001", "rw");
+			RandomAccessFile bootsBin = new RandomAccessFile(dest + "\\unknow_00056.bin_000", "rw");
+			RandomAccessFile teamConfigBin = new RandomAccessFile(dest + "\\unknow_00057.bin_000", "rw");
 			RandomAccessFile formationsBin = new RandomAccessFile(dest + "\\unknow_00057.bin_001", "rw");
 			RandomAccessFile nationalKitsBin = new RandomAccessFile(dest + "\\unknow_00058.bin_000", "rw");
 			RandomAccessFile clubKitsBin = new RandomAccessFile(dest + "\\unknow_00058.bin_001", "rw");
+			
 			byte[] players = new byte[604128];
 			byte[] slot23 = new byte[3450];
 			byte[] slot32 = new byte[8896];
 			byte[] num23 = new byte[1725];
 			byte[] num32 = new byte[4448];
+			
+			byte[] teamConfig = new byte[1182];
+			String teamConfigComplementString = "FFFFFFFFFF00020208020A01FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00";
+
 			byte[] formations = new byte[10244];
+			
 			byte[] boot = new byte[828];
+			
 			byte[] nationalKits = new byte[30552];
 			byte[] clubKits = new byte[84240];
+					
 			System.arraycopy(data, Player.startAdr, players, 0, players.length);
 			System.arraycopy(data, Squads.slot23, slot23, 0, slot23.length);
 			System.arraycopy(data, Squads.slot32, slot32, 0, slot32.length);
 			System.arraycopy(data, Squads.num23, num23, 0, num23.length);
 			System.arraycopy(data, Squads.num32, num32, 0, num32.length);
 			System.arraycopy(data, 639792, boot, 0, 828);
+			System.arraycopy(temConfigBytes, 0, teamConfig, 0, teamConfig.length);
 			System.arraycopy(formationsBytes, 0, formations, 0, formations.length);
 			System.arraycopy(nationalBytes, 0, nationalKits, 0, nationalKits.length);
 			System.arraycopy(clubBytes, 0, clubKits, 0, clubKits.length);
@@ -1943,6 +1968,8 @@ public class OptionFile {
 			num23Bin.write(num23);
 			num32Bin.write(num32);
 			bootsBin.write(boot);
+			teamConfigBin.write(teamConfig);
+			teamConfigBin.write(hexStringToByteArray(teamConfigComplementString));
 			formationsBin.write(formations);
 			nationalKitsBin.write(nationalKits);
 			clubKitsBin.write(clubKits);
@@ -1951,6 +1978,7 @@ public class OptionFile {
 			slot32Bin.close();
 			num23Bin.close();
 			num32Bin.close();
+			teamConfigBin.close();
 			formationsBin.close();
 			bootsBin.close();
 			nationalKitsBin.close();
@@ -2381,10 +2409,7 @@ public class OptionFile {
 			}
 		}
 	}
-	private void nodecrypt() {
-		 {
-		}
-	}
+	private void nodecrypt() {{}}
 	private void decrypt13() {
 		for (int i = 1; i < block13.length; i++) {
 			int k = 0;
