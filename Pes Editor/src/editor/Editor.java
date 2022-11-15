@@ -51,6 +51,11 @@ import javax.swing.JTabbedPane;
 public class Editor extends JFrame {
 		
 	/**
+	 *
+	 */
+	private static final String PesEditorTitle = "PES Editor 5/6/08/09/10/11/12/13/14 V 9.0 PSD (Por: Fábio Vitor)";
+
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -196,7 +201,7 @@ public class Editor extends JFrame {
 	boolean about = false;
 
 	public Editor() {
-		super("PES Editor 5/6/08/09/10/11/12/13/14 V 7.0 PSD (Por: Fábio Vitor)"); //version
+		super(PesEditorTitle); //version
 		setIcon();
 		JProgressBar localJProgressBar = new JProgressBar(0, 4);
 	    JPanel localJPanel = new JPanel(new BorderLayout());
@@ -349,7 +354,7 @@ public class Editor extends JFrame {
 		savePara11 = new JMenuItem("EXPORT DATABASE PES 2011");
 		savePara10 = new JMenuItem("EXPORT DATABASE PES 2010");
 		JMenuItem exitItem = new JMenuItem("EXIT");
-		JMenuItem helpItem = new JMenuItem("HELP :PES Editor 5/6/08/09/10/11/12/13/14 V 7.0 PSD (FABIO VITOR)"); //version
+		JMenuItem helpItem = new JMenuItem("HELP: " + PesEditorTitle); //version
 		JMenuItem aboutItem = new JMenuItem("ABOUT");
 		convertItem = new JMenuItem("CONVERT OF2 TO OF1");
 
@@ -758,7 +763,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of.saveXPS(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle+ " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser.setSelectedFile(null);
@@ -770,7 +775,7 @@ public class Editor extends JFrame {
 
 								if (of.saveXPSD(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser.setSelectedFile(null);
@@ -838,7 +843,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of.saveXPS(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle + " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser.setSelectedFile(null);
@@ -850,7 +855,7 @@ public class Editor extends JFrame {
 
 								if (of.saveXPS(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser.setSelectedFile(null);
@@ -918,7 +923,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS13(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle + " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser13.setSelectedFile(null);
@@ -930,7 +935,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS13(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser13.setSelectedFile(null);
@@ -998,7 +1003,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS12(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle + " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser12.setSelectedFile(null);
@@ -1010,7 +1015,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS12(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser12.setSelectedFile(null);
@@ -1078,7 +1083,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS11(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle + " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser11.setSelectedFile(null);
@@ -1090,7 +1095,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS11(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser11.setSelectedFile(null);
@@ -1158,7 +1163,7 @@ public class Editor extends JFrame {
 								if (n == 0) {
 									if (dest.delete() && of2.saveXPS10(dest)) {
 										currentFile = dest;
-										setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+										setTitle(PesEditorTitle + " - " //version
 												+ currentFile.getName());
 										saveOkMsg(dest);
 										chooser10.setSelectedFile(null);
@@ -1170,7 +1175,7 @@ public class Editor extends JFrame {
 
 								if (of2.saveXPS10(dest)) {
 									currentFile = dest;
-									setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " //version
+									setTitle(PesEditorTitle + " - " //version
 											+ currentFile.getName());
 									saveOkMsg(dest);
 									chooser10.setSelectedFile(null);
@@ -1573,7 +1578,7 @@ public class Editor extends JFrame {
 			if (chooser.getSelectedFile().isFile()
 					&& of.readXPS(chooser.getSelectedFile())) {
 				currentFile = chooser.getSelectedFile();
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " + currentFile.getName()); //version
+				setTitle(PesEditorTitle + " - " + currentFile.getName()); //version
 				Squads.fixAll(of);
 				flagPanel.refresh();
 				imagePanel.refresh();
@@ -1644,7 +1649,7 @@ public class Editor extends JFrame {
 				tabbedPane.setVisible(false);
 
 				convertItem.setEnabled(false);
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR)"); //version
+				setTitle(PesEditorTitle); //version
 				openFailMsg();
 			}
 		}
@@ -1658,7 +1663,7 @@ public class Editor extends JFrame {
 			if (chooser.getSelectedFile().isFile()
 					&& of.readXPSD(chooser.getSelectedFile())) {
 				currentFile = chooser.getSelectedFile();
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR) - " + currentFile.getName()); //version
+				setTitle(PesEditorTitle + " - " + currentFile.getName()); //version
 				Squads.fixAll(of);
 				flagPanel.refresh();
 				imagePanel.refresh();
@@ -1729,7 +1734,7 @@ public class Editor extends JFrame {
 				tabbedPane.setVisible(false);
 
 				convertItem.setEnabled(false);
-				setTitle("PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (BY FABIO VITOR)"); //version
+				setTitle(PesEditorTitle); //version
 				openFailMsg();
 			}
 		}
@@ -1780,7 +1785,7 @@ public class Editor extends JFrame {
 	}
 	private void about()
 	  {
-		JOptionPane.showMessageDialog(getContentPane(), "PES Editor 5/6/08/09/10/11/12/13/14 Version 7.0 PSD (Por: Fábio Vitor)\nVersion  7.0\n\nCopyright: 2014-2019 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  7.0\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o PES Editor 5/6/08/09/10/11/12/13/14 7.0 PSD (MOD: Fábio Vitor)", -1, getIcon());
+		JOptionPane.showMessageDialog(getContentPane(), PesEditorTitle + "\nVersion  9.0\n\nCopyright: 2014-2022 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  9.0\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o " + PesEditorTitle, -1, getIcon());
 	  }
 	  
 	  public static void main(String[] paramArrayOfString)
