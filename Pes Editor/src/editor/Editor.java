@@ -53,7 +53,7 @@ public class Editor extends JFrame {
 	/**
 	 *
 	 */
-	private static final String PesEditorTitle = "PES Editor 5/6/08/09/10/11/12/13/14 V 9.0 PSD (Por: Fábio Vitor)";
+	private static final String PesEditorTitle = "PES Editor 5/6/08/09/10/11/12/13/14 V 9.1 PSD (Por: Fábio Vitor)";
 
 	/**
 	 * 
@@ -1785,7 +1785,7 @@ public class Editor extends JFrame {
 	}
 	private void about()
 	  {
-		JOptionPane.showMessageDialog(getContentPane(), PesEditorTitle + "\nVersion  9.0\n\nCopyright: 2014-2022 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  9.0\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o " + PesEditorTitle, -1, getIcon());
+		JOptionPane.showMessageDialog(getContentPane(), PesEditorTitle + "\nVersion  9.1\n\nCopyright: 2014-2022 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  9.1\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o " + PesEditorTitle, -1, getIcon());
 	  }
 	  
 	  public static void main(String[] paramArrayOfString)
