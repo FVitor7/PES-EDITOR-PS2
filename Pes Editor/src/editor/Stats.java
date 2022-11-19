@@ -22,6 +22,11 @@
 
 package editor;
 
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Stats {
 
 	final static Stat hair = new Stat(0, 45, 0, 4095, "Hair");
@@ -557,8 +562,46 @@ public class Stats {
 	
 	final static String[] MOD_CEL = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80" };
 	
-	final static String[] modcall = { "DESATIVADO", "ALMER", "DRAGOVIC", "GARICS", "FUCHS", "KAVLAK", "ALABA", "HARNIK", "ARNAUTOVIC", "JUNUZOVIC", "JANKO", "LINDNER", "ÖZCAN", "PRÖDL", "SCHIEMER", "F. KLEIN", "BAUMGARTLINGER", "JANTSCHER", "IVANSCHITZ", "A. WEIMANN", "COURTOIS", "KOMPANY" };
+	final static String[] modcall = { "DESATIVADO", "ALMER", "DRAGOVIC", "GARICS", "FUCHS", "KAVLAK", "ALABA", "HARNIK", "ARNAUTOVIC", "JUNUZOVIC", "JANKO", "LINDNER", "ï¿½ZCAN", "PRï¿½DL", "SCHIEMER", "F. KLEIN", "BAUMGARTLINGER", "JANTSCHER", "IVANSCHITZ", "A. WEIMANN", "COURTOIS", "KOMPANY" };
 	
+	final static int nation_free;
+	
+	static {
+		String[] nationArray = nation;
+		try {
+			List<String> nationList = new LinkedList<String>();
+			RandomAccessFile in = new RandomAccessFile(new File("nationality.txt"), "r");
+			while (true) {
+				String value = in.readLine();
+				if (value == null) {
+					break;
+				}
+				if (!value.trim().isEmpty()) {
+					nationList.add(value.trim());
+				}
+			}
+			in.close();
+			nationArray = nationList.toArray(nation);
+		}
+		catch (Exception e) {
+		}
+		finally {
+			String[] nations = nationArray;
+			// set free nationality
+			int nation_free_guess = -1;
+			for (int i=0; i<nations.length; i++) {
+				if (nations[i].toLowerCase().startsWith("free ")) {
+					nation_free_guess = i;
+				}
+			}
+			nation_free = (nation_free_guess != -1) ? nation_free_guess : 0;
+			// DEBUG:
+			//for (int i=0; i<nation.length; i++) {
+			//	System.out.println("nationality: " + i + ": {" + nation[i] + "}");
+			//}
+		}
+	}
+
 	public static int getValue(OptionFile of, int player, Stat stat) {
 		int val = 0;
 		if (of.newVersion) {
@@ -567,7 +610,7 @@ public class Stats {
 				a = Player.startAdrE + 48 + ((player - Player.firstEdit) * 124)
 						+ stat.offSet;
 			}
-			// System.out.println(a);
+			
 			val = (of.toInt(of.data[a]) << 8) | of.toInt(of.data[a - 1]);
 		} else if (of.version13) {
 			int a = Player.startAdr13 + 48 + (player * 124) + stat.offSet;
