@@ -79,7 +79,7 @@ public class ExtraPanel extends JPanel {
 	public ExtraPanel(final Frame owner, OptionFile opf) {
 		super(new GridLayout(0, 2));
 		of = opf;
-		setBorder(BorderFactory.createTitledBorder("Ajustes Extras"));
+		setBorder(BorderFactory.createTitledBorder("Extra Adjustments"));
 		// stats = s;
 		callButton = new JButton("Mapa");
 		callButton.addActionListener(new ActionListener()
@@ -99,12 +99,12 @@ public class ExtraPanel extends JPanel {
 		hairField.setInputVerifier(new Verifierhair());;
 		callField = new JTextField(2);
 		callField.setInputVerifier(new Verifiercall());
-		specHairCheck = new JCheckBox("Especiais 2");
+		specHairCheck = new JCheckBox("Specials 2");
 		JPanel localJPanel2 = new JPanel(new GridLayout(0, 2));
 	    localJPanel2.add(hairField);
 	    hairField.setToolTipText("ID: 1 (Bin 3988) / ID: 1800 (Bin 5987)");
 	    localJPanel2.add(specHairCheck);
-	   specHairCheck.setToolTipText("Marque essa opção para utilizar Hais Predefinidos");
+	   specHairCheck.setToolTipText("Check this option to use Hair Presets");
 	    add(localJPanel2, localGridBagConstraints);
 	    JPanel localJPanel3 = new JPanel(new GridLayout(0, 2));
 		faceBox = new JComboBox(Stats.MOD_FACE);
@@ -121,7 +121,7 @@ public class ExtraPanel extends JPanel {
 		localJPanel5.add(cel2Box);
 		JPanel localJPanel6 = new JPanel(new GridLayout(0, 2));
 		localJPanel6.add(callField);
-		callField.setToolTipText("Para desativar o CallName digite: 65535");
+		callField.setToolTipText("To disable CallName type: 65535");
 		localJPanel6.add(callButton);
 		
 		
@@ -132,7 +132,7 @@ public class ExtraPanel extends JPanel {
 		add(localJPanel2);
 		add(new JLabel("Callname"));
 		add(localJPanel6);
-		add(new JLabel("Celebração"));
+		add(new JLabel("Celebrations"));
 		add(localJPanel5);
 		add(new JLabel("Fama"));
 		famaField.setToolTipText("FamaA: 18487 / FamaB: 782 / FamaC: 49749 / FamaD: 12299 / Fama OFF: 21769");
@@ -176,7 +176,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 1 && v <= 6) {
 					ok = true;
 				}
@@ -192,7 +192,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 1 && v <= 4095) {
 					ok = true;
 				}
@@ -208,7 +208,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 1 && v <= 4095) {
 					ok = true;
 				}
@@ -227,7 +227,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 1 && v < 128) {
 					ok = true;
 				}
@@ -243,7 +243,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 15 && v <= 46) {
 					ok = true;
 				}
@@ -258,7 +258,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 0 && v <= 65535) {
 					ok = true;
 				}
@@ -273,7 +273,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 0 && v <= 65535) {
 					ok = true;
 				}
@@ -288,7 +288,7 @@ public class ExtraPanel extends JPanel {
 			boolean ok = false;
 			JTextField tf = (JTextField) input;
 			try {
-				int v = new Integer(tf.getText()).intValue();
+				Integer v = Integer.valueOf(tf.getText()).intValue();
 				if (v >= 0 && v <= 80) {
 					ok = true;
 				}
