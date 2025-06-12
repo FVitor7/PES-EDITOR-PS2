@@ -38,6 +38,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
+import java.io.File;
+
+import java.util.List;
+
+import editor.AutoCompleteComboBox;
+import editor.CallnameEntry;
+import editor.CallnameLoader;
 
 public class ExtraPanel extends JPanel {
 	/**
@@ -53,7 +60,8 @@ public class ExtraPanel extends JPanel {
 	
 	JTextField famaField;
 	
-	JTextField callField;
+        JTextField callField;
+        AutoCompleteComboBox callCombo;
 	
 	MapaCallname mapacall;
 	
@@ -97,9 +105,20 @@ public class ExtraPanel extends JPanel {
 		famaField = new JTextField(2);
 		hairField = new JTextField(2);
 		hairField.setInputVerifier(new Verifierhair());;
-		callField = new JTextField(2);
-		callField.setInputVerifier(new Verifiercall());
-		specHairCheck = new JCheckBox("Specials 2");
+                callField = new JTextField(2);
+                callField.setInputVerifier(new Verifiercall());
+                List<CallnameEntry> cnList = CallnameLoader.load(new File("callnames.csv"));
+                callCombo = new AutoCompleteComboBox(cnList);
+                callCombo.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                                Object obj = callCombo.getSelectedItem();
+                                if (obj instanceof CallnameEntry) {
+                                        CallnameEntry ce = (CallnameEntry) obj;
+                                        callField.setText(Integer.toString(ce.callName));
+                                }
+                        }
+                });
+                specHairCheck = new JCheckBox("Specials 2");
 		JPanel localJPanel2 = new JPanel(new GridLayout(0, 2));
 	    localJPanel2.add(hairField);
 	    hairField.setToolTipText("ID: 1 (Bin 3988) / ID: 1800 (Bin 5987)");
@@ -119,10 +138,11 @@ public class ExtraPanel extends JPanel {
 		JPanel localJPanel5 = new JPanel(new GridLayout(0, 2));
 		localJPanel5.add(cel1Box);
 		localJPanel5.add(cel2Box);
-		JPanel localJPanel6 = new JPanel(new GridLayout(0, 2));
-		localJPanel6.add(callField);
-		callField.setToolTipText("To disable CallName type: 65535");
-		localJPanel6.add(callButton);
+                JPanel localJPanel6 = new JPanel(new GridLayout(0, 3));
+                localJPanel6.add(callCombo);
+                localJPanel6.add(callField);
+                callField.setToolTipText("To disable CallName type: 65535");
+                localJPanel6.add(callButton);
 		
 		
 		add(new JLabel("Face"));
@@ -154,10 +174,11 @@ public class ExtraPanel extends JPanel {
 
 		faceField.setText(Stats.getString(of, player, Stats.FACE_TYPE));
 		famaField.setText(Stats.getString(of, player, Stats.fama));
-		hairField.setText(Stats.getString(of, player, Stats.hair));
-		specHairCheck.setSelected(Stats.getValue(of, player, Stats.SH2) != 0);
-		callField.setText(Stats.getString(of, player, Stats.callName));
-		faceBox.setSelectedItem(Stats.getString(of, player, Stats.faceType));
+                hairField.setText(Stats.getString(of, player, Stats.hair));
+                specHairCheck.setSelected(Stats.getValue(of, player, Stats.SH2) != 0);
+                callField.setText(Stats.getString(of, player, Stats.callName));
+                callCombo.setSelectedItem(null);
+                faceBox.setSelectedItem(Stats.getString(of, player, Stats.faceType));
 		skinBox.setSelectedItem(Stats.getString(of, player, Stats.SKIN2));
 		cel1Box.setSelectedItem(Stats.getString(of, player, Stats.CEL1));
 		cel2Box.setSelectedItem(Stats.getString(of, player, Stats.CEL2));

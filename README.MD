@@ -12,6 +12,7 @@
 * CallName Relink (Map Inclused)
 * Celebration Relink
 * New Ui
+* Callname autocomplete search when editing players
 ### Binary builds
 [HERE!](https://github.com/FVitor7/PES-EDITOR-PS2/releases/)
  
