@@ -47,6 +47,12 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
+
+import java.text.MessageFormat;
+import java.util.Locale;
+
+import editor.i18n.Messages;
 
 public class Editor extends JFrame {
 		
@@ -325,11 +331,14 @@ public class Editor extends JFrame {
 	}
 
 	private void buildMenu() {
-		JMenuBar mb = new JMenuBar();
-		JMenu menu = new JMenu("FILE");
-		JMenu help = new JMenu("HELP");
-		JMenu tool = new JMenu("TOOLS");
-		JMenuItem openItem = new JMenuItem("OPEN OF PES 2014");
+                JMenuBar mb = new JMenuBar();
+                JMenu menu = new JMenu(Messages.getString("menu.file"));
+                JMenu help = new JMenu(Messages.getString("menu.help"));
+                JMenu tool = new JMenu(Messages.getString("menu.tools"));
+                JMenu languageMenu = new JMenu(Messages.getString("menu.language"));
+                JMenuItem langEn = new JMenuItem(Messages.getString("language.en"));
+                JMenuItem langPt = new JMenuItem(Messages.getString("language.pt"));
+                JMenuItem openItem = new JMenuItem(Messages.getString("menuitem.open_pes2014"));
 		JMenuItem openItemD = new JMenuItem("OPEN OF PES 2014 DECRYPT");
 		open2Item = new JMenuItem("OPEN OF2 PES 2014");
 		open2ItemD = new JMenuItem("OPEN OF2 PES 2014 DECRYPT");
@@ -353,9 +362,9 @@ public class Editor extends JFrame {
 		savePara12 = new JMenuItem("EXPORT DATABASE PES 2012");
 		savePara11 = new JMenuItem("EXPORT DATABASE PES 2011");
 		savePara10 = new JMenuItem("EXPORT DATABASE PES 2010");
-		JMenuItem exitItem = new JMenuItem("EXIT");
-		JMenuItem helpItem = new JMenuItem("HELP: " + PesEditorTitle); //version
-		JMenuItem aboutItem = new JMenuItem("ABOUT");
+                JMenuItem exitItem = new JMenuItem(Messages.getString("menuitem.exit"));
+                JMenuItem helpItem = new JMenuItem("HELP: " + PesEditorTitle); //version
+                JMenuItem aboutItem = new JMenuItem(Messages.getString("menuitem.about"));
 		convertItem = new JMenuItem("CONVERT OF2 TO OF1");
 
 		psdItem = new JMenuItem("Get PSD Stats...");
@@ -1418,17 +1427,22 @@ public class Editor extends JFrame {
 		menu.add(open6Item);
 		menu.add(new JSeparator());
 		menu.add(open5Item);
-		menu.add(new JSeparator());
-		menu.add(exitItem);
-		help.add(helpItem);
-		help.add(aboutItem);
-		tool.add(csvItem);
-		tool.add(psdItem);
-		tool.add(convertItem);
-		mb.add(menu);
-		mb.add(tool);
-		mb.add(help);
-		setJMenuBar(mb);
+                menu.add(new JSeparator());
+                menu.add(exitItem);
+                langEn.addActionListener(e -> { Messages.setLocale(Locale.ENGLISH); rebuildMenu(); });
+                langPt.addActionListener(e -> { Messages.setLocale(new Locale("pt")); rebuildMenu(); });
+                languageMenu.add(langEn);
+                languageMenu.add(langPt);
+                help.add(helpItem);
+                help.add(aboutItem);
+                tool.add(csvItem);
+                tool.add(psdItem);
+                tool.add(convertItem);
+                mb.add(menu);
+                mb.add(tool);
+                mb.add(help);
+                mb.add(languageMenu);
+                setJMenuBar(mb);
 		csvItem.setEnabled(false);
 		psdItem.setEnabled(false);
 		open2Item.setEnabled(false);
@@ -1455,6 +1469,12 @@ public class Editor extends JFrame {
 		savePara10.setEnabled(false);
 		convertItem.setEnabled(false);
 	}
+	private void rebuildMenu() {
+		setJMenuBar(null);
+		buildMenu();
+		SwingUtilities.updateComponentTreeUI(this);
+	}
+
 
 	private boolean fileNameLegal(String fileName) {
 		boolean legal = true;
@@ -1783,10 +1803,13 @@ public class Editor extends JFrame {
 		}
 		return dir;
 	}
-	private void about()
-	  {
-		JOptionPane.showMessageDialog(getContentPane(), PesEditorTitle + "\nVersion  9.1\n\nCopyright: 2014-2022 FabVitor\n\nCriado Por: Fábio Vitor\nFacebook: www.facebook.com/Fabcr7\nGmail: fabvitor2010@gmail.com\nHotmail: fabvitor2016@outlook.com\n\nAgradecimentos especiais ao Lazanet pelo port do mod PSD para o Pes Editor  9.1\n\nAgradecimentos especiais ao Nthachus pelo mod FACE, HAIR, SKIN\n\nEste Programa tem Software Livre, Você pode redistribuir e/ou Modificar\nSob os Termos da Licença (GNU Public)\n\nTendo um certificado, registrado e comprovado Por:\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPara mais detalhes sobre a GNU General Public License: \nVocê deve ter recebido uma cópia da GNU General Public License\njuntamente com esse programa.  Se não, acesse: www.gnu.org/licenses.\n\nAgradecimentos Especiais (Compulsion):\nRobimex2002 por sua grande ajuda com Edições Hexadecimal\nUm Obrigado a Toda a Comunidade PES por seu Apoio!", "Sobre o " + PesEditorTitle, -1, getIcon());
-	  }
+        private void about()
+          {
+                String title = MessageFormat.format(Messages.getString("about.title"), PesEditorTitle);
+                JOptionPane.showMessageDialog(getContentPane(),
+                                Messages.getString("about.message"),
+                                title, -1, getIcon());
+          }
 	  
 	  public static void main(String[] paramArrayOfString)
 	    throws IOException
