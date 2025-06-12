@@ -12,6 +12,7 @@
 * CallName Relink (Map Inclused)
 * Celebration Relink
 * New Ui
+* Multi-language support (English and Portuguese)
 ### Binary builds
 [HERE!](https://github.com/FVitor7/PES-EDITOR-PS2/releases/)
  
